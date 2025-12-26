@@ -1,0 +1,703 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PantryGo</name>
+    </assembly>
+    <members>
+        <member name="T:PantryGo.ViewModels.BaseViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.BaseViewModel.IsBusy">
+            <inheritdoc cref="F:PantryGo.ViewModels.BaseViewModel._isBusy"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.BaseViewModel.Title">
+            <inheritdoc cref="F:PantryGo.ViewModels.BaseViewModel._title"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.BaseViewModel.ErrorMessage">
+            <inheritdoc cref="F:PantryGo.ViewModels.BaseViewModel._errorMessage"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.BaseViewModel.HasError">
+            <inheritdoc cref="F:PantryGo.ViewModels.BaseViewModel._hasError"/>
+        </member>
+        <member name="T:PantryGo.ViewModels.CartViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.Items">
+            <inheritdoc cref="F:PantryGo.ViewModels.CartViewModel._items"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.TotalPrice">
+            <inheritdoc cref="F:PantryGo.ViewModels.CartViewModel._totalPrice"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.ItemCount">
+            <inheritdoc cref="F:PantryGo.ViewModels.CartViewModel._itemCount"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.IsEmpty">
+            <inheritdoc cref="F:PantryGo.ViewModels.CartViewModel._isEmpty"/>
+        </member>
+        <member name="F:PantryGo.ViewModels.CartViewModel.increaseQuantityCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CartViewModel.IncreaseQuantityCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.IncreaseQuantityCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:PantryGo.ViewModels.CartViewModel.IncreaseQuantity(PantryGo.Models.CartItem)"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CartViewModel.decreaseQuantityCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CartViewModel.DecreaseQuantityCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.DecreaseQuantityCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:PantryGo.ViewModels.CartViewModel.DecreaseQuantity(PantryGo.Models.CartItem)"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CartViewModel.removeItemCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CartViewModel.RemoveItemCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.RemoveItemCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:PantryGo.ViewModels.CartViewModel.RemoveItem(PantryGo.Models.CartItem)"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CartViewModel.clearCartCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CartViewModel.ClearCartCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.ClearCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CartViewModel.ClearCart"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CartViewModel.checkoutCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CartViewModel.CheckoutCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.CheckoutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CartViewModel.CheckoutAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CartViewModel.continueShoppingCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CartViewModel.ContinueShoppingCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CartViewModel.ContinueShoppingCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CartViewModel.ContinueShoppingAsync"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.CheckoutViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.Addresses">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._addresses"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.SelectedAddress">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._selectedAddress"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.Subtotal">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._subtotal"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.DeliveryFee">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._deliveryFee"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.Total">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._total"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.IsAddressFormVisible">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._isAddressFormVisible"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.NewAddressLabel">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._newAddressLabel"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.NewAddressLine">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._newAddressLine"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.NewCity">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._newCity"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.NewPincode">
+            <inheritdoc cref="F:PantryGo.ViewModels.CheckoutViewModel._newPincode"/>
+        </member>
+        <member name="F:PantryGo.ViewModels.CheckoutViewModel.loadAddressesCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CheckoutViewModel.LoadAddressesCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.LoadAddressesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CheckoutViewModel.LoadAddressesAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CheckoutViewModel.showAddressFormCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CheckoutViewModel.ShowAddressFormCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.ShowAddressFormCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CheckoutViewModel.ShowAddressForm"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CheckoutViewModel.hideAddressFormCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CheckoutViewModel.HideAddressFormCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.HideAddressFormCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CheckoutViewModel.HideAddressForm"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CheckoutViewModel.saveAddressCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CheckoutViewModel.SaveAddressCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.SaveAddressCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CheckoutViewModel.SaveAddressAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.CheckoutViewModel.placeOrderCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.CheckoutViewModel.PlaceOrderCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.CheckoutViewModel.PlaceOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.CheckoutViewModel.PlaceOrderAsync"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.HomeViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.Products">
+            <inheritdoc cref="F:PantryGo.ViewModels.HomeViewModel._products"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.Categories">
+            <inheritdoc cref="F:PantryGo.ViewModels.HomeViewModel._categories"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.SelectedCategory">
+            <inheritdoc cref="F:PantryGo.ViewModels.HomeViewModel._selectedCategory"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.SearchQuery">
+            <inheritdoc cref="F:PantryGo.ViewModels.HomeViewModel._searchQuery"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.CartItemCount">
+            <inheritdoc cref="F:PantryGo.ViewModels.HomeViewModel._cartItemCount"/>
+        </member>
+        <member name="F:PantryGo.ViewModels.HomeViewModel.loadDataCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.HomeViewModel.LoadDataCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.LoadDataCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.HomeViewModel.LoadDataAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.HomeViewModel.loadProductsCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.HomeViewModel.LoadProductsCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.LoadProductsCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.HomeViewModel.LoadProductsAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.HomeViewModel.selectCategoryCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.HomeViewModel.SelectCategoryCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.SelectCategoryCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:PantryGo.ViewModels.HomeViewModel.SelectCategoryAsync(System.String)"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.HomeViewModel.searchCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.HomeViewModel.SearchCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.SearchCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.HomeViewModel.SearchAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.HomeViewModel.viewProductCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.HomeViewModel.ViewProductCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.ViewProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:PantryGo.ViewModels.HomeViewModel.ViewProductAsync(PantryGo.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.HomeViewModel.addToCartCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.HomeViewModel.AddToCartCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.AddToCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand`1"/> instance wrapping <see cref="M:PantryGo.ViewModels.HomeViewModel.AddToCart(PantryGo.Models.Product)"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.HomeViewModel.goToCartCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.HomeViewModel.GoToCartCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.HomeViewModel.GoToCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.HomeViewModel.GoToCartAsync"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.LoginViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.LoginViewModel.Email">
+            <inheritdoc cref="F:PantryGo.ViewModels.LoginViewModel._email"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.LoginViewModel.Password">
+            <inheritdoc cref="F:PantryGo.ViewModels.LoginViewModel._password"/>
+        </member>
+        <member name="F:PantryGo.ViewModels.LoginViewModel.loginCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.LoginViewModel.LoginCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.LoginViewModel.LoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.LoginViewModel.LoginAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.LoginViewModel.goToRegisterCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.LoginViewModel.GoToRegisterCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.LoginViewModel.GoToRegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.LoginViewModel.GoToRegisterAsync"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.OrderDetailViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.OrderId">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderDetailViewModel._orderId"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.Order">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderDetailViewModel._order"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.StatusText">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderDetailViewModel._statusText"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.StatusIcon">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderDetailViewModel._statusIcon"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.StatusColor">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderDetailViewModel._statusColor"/>
+        </member>
+        <member name="M:PantryGo.ViewModels.OrderDetailViewModel.OnOrderIdChanged(System.Guid)">
+            <summary>Executes the logic for when <see cref="P:PantryGo.ViewModels.OrderDetailViewModel.OrderId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:PantryGo.ViewModels.OrderDetailViewModel.OrderId"/> is changed.</remarks>
+        </member>
+        <member name="F:PantryGo.ViewModels.OrderDetailViewModel.loadOrderCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.OrderDetailViewModel.LoadOrderCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.LoadOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.OrderDetailViewModel.LoadOrderAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.OrderDetailViewModel.refreshOrderCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.OrderDetailViewModel.RefreshOrderCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.RefreshOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.OrderDetailViewModel.RefreshOrderAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.OrderDetailViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.OrderDetailViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderDetailViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.OrderDetailViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.OrderListViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderListViewModel.Orders">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderListViewModel._orders"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderListViewModel.IsEmpty">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderListViewModel._isEmpty"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderListViewModel.IsRefreshing">
+            <inheritdoc cref="F:PantryGo.ViewModels.OrderListViewModel._isRefreshing"/>
+        </member>
+        <member name="F:PantryGo.ViewModels.OrderListViewModel.loadOrdersCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.OrderListViewModel.LoadOrdersCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderListViewModel.LoadOrdersCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.OrderListViewModel.LoadOrdersAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.OrderListViewModel.refreshCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.OrderListViewModel.RefreshCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderListViewModel.RefreshCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.OrderListViewModel.RefreshAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.OrderListViewModel.viewOrderCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.OrderListViewModel.ViewOrderCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.OrderListViewModel.ViewOrderCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:PantryGo.ViewModels.OrderListViewModel.ViewOrderAsync(PantryGo.Models.Order)"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.ProductDetailViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.ProductId">
+            <inheritdoc cref="F:PantryGo.ViewModels.ProductDetailViewModel._productId"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.Product">
+            <inheritdoc cref="F:PantryGo.ViewModels.ProductDetailViewModel._product"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.Quantity">
+            <inheritdoc cref="F:PantryGo.ViewModels.ProductDetailViewModel._quantity"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.IsInStock">
+            <inheritdoc cref="F:PantryGo.ViewModels.ProductDetailViewModel._isInStock"/>
+        </member>
+        <member name="M:PantryGo.ViewModels.ProductDetailViewModel.OnProductIdChanged(System.Guid)">
+            <summary>Executes the logic for when <see cref="P:PantryGo.ViewModels.ProductDetailViewModel.ProductId"/> just changed.</summary>
+            <param name="value">The new property value that was set.</param>
+            <remarks>This method is invoked right after the value of <see cref="P:PantryGo.ViewModels.ProductDetailViewModel.ProductId"/> is changed.</remarks>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProductDetailViewModel.loadProductCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProductDetailViewModel.LoadProductCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.LoadProductCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProductDetailViewModel.LoadProductAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProductDetailViewModel.increaseQuantityCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProductDetailViewModel.IncreaseQuantityCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.IncreaseQuantityCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProductDetailViewModel.IncreaseQuantity"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProductDetailViewModel.decreaseQuantityCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProductDetailViewModel.DecreaseQuantityCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.DecreaseQuantityCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProductDetailViewModel.DecreaseQuantity"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProductDetailViewModel.addToCartCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProductDetailViewModel.AddToCartCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.AddToCartCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProductDetailViewModel.AddToCartAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProductDetailViewModel.goBackCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProductDetailViewModel.GoBackCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProductDetailViewModel.GoBackCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProductDetailViewModel.GoBackAsync"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.ProfileViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProfileViewModel.User">
+            <inheritdoc cref="F:PantryGo.ViewModels.ProfileViewModel._user"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProfileViewModel.IsLoggedIn">
+            <inheritdoc cref="F:PantryGo.ViewModels.ProfileViewModel._isLoggedIn"/>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProfileViewModel.loadProfileCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProfileViewModel.LoadProfileCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProfileViewModel.LoadProfileCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProfileViewModel.LoadProfile"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProfileViewModel.logoutCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProfileViewModel.LogoutCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProfileViewModel.LogoutCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProfileViewModel.LogoutAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProfileViewModel.viewOrdersCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProfileViewModel.ViewOrdersCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProfileViewModel.ViewOrdersCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProfileViewModel.ViewOrdersAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.ProfileViewModel.manageAddressesCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.ProfileViewModel.ManageAddressesCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.ProfileViewModel.ManageAddressesCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.ProfileViewModel.ManageAddressesAsync"/>.</summary>
+        </member>
+        <member name="T:PantryGo.ViewModels.RegisterViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:PantryGo.ViewModels.RegisterViewModel.Name">
+            <inheritdoc cref="F:PantryGo.ViewModels.RegisterViewModel._name"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.RegisterViewModel.Email">
+            <inheritdoc cref="F:PantryGo.ViewModels.RegisterViewModel._email"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.RegisterViewModel.Password">
+            <inheritdoc cref="F:PantryGo.ViewModels.RegisterViewModel._password"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.RegisterViewModel.ConfirmPassword">
+            <inheritdoc cref="F:PantryGo.ViewModels.RegisterViewModel._confirmPassword"/>
+        </member>
+        <member name="P:PantryGo.ViewModels.RegisterViewModel.Phone">
+            <inheritdoc cref="F:PantryGo.ViewModels.RegisterViewModel._phone"/>
+        </member>
+        <member name="F:PantryGo.ViewModels.RegisterViewModel.registerCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.RegisterViewModel.RegisterCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.RegisterViewModel.RegisterCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.RegisterViewModel.RegisterAsync"/>.</summary>
+        </member>
+        <member name="F:PantryGo.ViewModels.RegisterViewModel.goToLoginCommand">
+            <summary>The backing field for <see cref="P:PantryGo.ViewModels.RegisterViewModel.GoToLoginCommand"/>.</summary>
+        </member>
+        <member name="P:PantryGo.ViewModels.RegisterViewModel.GoToLoginCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:PantryGo.ViewModels.RegisterViewModel.GoToLoginAsync"/>.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsNotBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsNotBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.HasError">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "HasError" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Items">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Items" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.TotalPrice">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "TotalPrice" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ItemCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ItemCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsEmpty">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsEmpty" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Addresses">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Addresses" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedAddress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedAddress" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Subtotal">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Subtotal" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.DeliveryFee">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "DeliveryFee" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Total">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Total" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsAddressFormVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsAddressFormVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewAddressLabel">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewAddressLabel" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewAddressLine">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewAddressLine" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewCity">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewCity" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NewPincode">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NewPincode" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Products">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Products" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Categories">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Categories" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedCategory">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedCategory" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SearchQuery">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SearchQuery" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.CartItemCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "CartItemCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.OrderId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "OrderId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Order">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Order" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StatusText">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StatusText" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StatusIcon">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StatusIcon" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.StatusColor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "StatusColor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Orders">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Orders" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsRefreshing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsRefreshing" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ProductId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ProductId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Product">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Product" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Quantity">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Quantity" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsInStock">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsInStock" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.User">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "User" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IsLoggedIn">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IsLoggedIn" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Name">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Name" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.ConfirmPassword">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "ConfirmPassword" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Phone">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Phone" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsNotBusy">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsNotBusy" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Title">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Title" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ErrorMessage">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ErrorMessage" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.HasError">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "HasError" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Items">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Items" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.TotalPrice">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "TotalPrice" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ItemCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ItemCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsEmpty">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsEmpty" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Addresses">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Addresses" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedAddress">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedAddress" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Subtotal">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Subtotal" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.DeliveryFee">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "DeliveryFee" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Total">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Total" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsAddressFormVisible">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsAddressFormVisible" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewAddressLabel">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewAddressLabel" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewAddressLine">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewAddressLine" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewCity">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewCity" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NewPincode">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NewPincode" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Products">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Products" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Categories">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Categories" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedCategory">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedCategory" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SearchQuery">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SearchQuery" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.CartItemCount">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "CartItemCount" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Email">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Email" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Password">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Password" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.OrderId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "OrderId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Order">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Order" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StatusText">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StatusText" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StatusIcon">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StatusIcon" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.StatusColor">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "StatusColor" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Orders">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Orders" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsRefreshing">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsRefreshing" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ProductId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ProductId" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Product">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Product" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Quantity">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Quantity" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsInStock">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsInStock" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.User">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "User" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IsLoggedIn">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IsLoggedIn" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Name">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Name" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.ConfirmPassword">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "ConfirmPassword" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Phone">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Phone" generated properties.</summary>
+        </member>
+    </members>
+</doc>

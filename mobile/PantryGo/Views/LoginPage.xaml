@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PantryGo.ViewModels"
+             x:Class="PantryGo.Views.LoginPage"
+             x:DataType="vm:LoginViewModel"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource Background}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16" VerticalOptions="Center">
+            
+            <!-- Logo & Title -->
+            <VerticalStackLayout Spacing="8" Margin="0,0,0,32">
+                <Label Text="🛒" FontSize="64" HorizontalOptions="Center"/>
+                <Label Text="PantryGo" 
+                       FontSize="32" 
+                       FontAttributes="Bold" 
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource Primary}"/>
+                <Label Text="Stock Your Kitchen in a Few Taps" 
+                       FontSize="14" 
+                       TextColor="{StaticResource Gray500}"
+                       HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+            
+            <!-- Error Message -->
+            <Frame IsVisible="{Binding HasError}" 
+                   BackgroundColor="#FFE0E0" 
+                   Padding="12" 
+                   CornerRadius="8"
+                   BorderColor="Transparent">
+                <Label Text="{Binding ErrorMessage}" 
+                       TextColor="#C62828"/>
+            </Frame>
+            
+            <!-- Email -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Email" FontSize="14" TextColor="{StaticResource Gray600}"/>
+                <Frame Padding="0" CornerRadius="8" BorderColor="{StaticResource Gray300}">
+                    <Entry Text="{Binding Email}" 
+                           Placeholder="you@example.com"
+                           Keyboard="Email"
+                           Margin="12,0"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <!-- Password -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Password" FontSize="14" TextColor="{StaticResource Gray600}"/>
+                <Frame Padding="0" CornerRadius="8" BorderColor="{StaticResource Gray300}">
+                    <Entry Text="{Binding Password}" 
+                           Placeholder="Your password"
+                           IsPassword="True"
+                           Margin="12,0"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <!-- Login Button -->
+            <Button Text="Login" 
+                    Command="{Binding LoginCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="50"
+                    Margin="0,16,0,0"/>
+            
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                               IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Primary}"/>
+            
+            <!-- Register Link -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4" Margin="0,16,0,0">
+                <Label Text="Don't have an account?" TextColor="{StaticResource Gray500}"/>
+                <Label Text="Sign Up" 
+                       TextColor="{StaticResource Primary}"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToRegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

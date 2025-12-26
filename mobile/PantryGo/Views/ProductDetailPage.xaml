@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PantryGo.ViewModels"
+             x:Class="PantryGo.Views.ProductDetailPage"
+             x:DataType="vm:ProductDetailViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+    
+    <Grid RowDefinitions="*,Auto">
+        
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Spacing="16">
+                
+                <!-- Product Image -->
+                <Frame HeightRequest="250" 
+                       CornerRadius="0" 
+                       BackgroundColor="{StaticResource Gray100}"
+                       Padding="0">
+                    <Label Text="🥬" FontSize="80" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"/>
+                </Frame>
+                
+                <VerticalStackLayout Padding="16" Spacing="8">
+                    
+                    <!-- Loading -->
+                    <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                                       IsVisible="{Binding IsBusy}"
+                                       Color="{StaticResource Primary}"/>
+                    
+                    <!-- Category Badge -->
+                    <Frame Padding="8,4" 
+                           CornerRadius="12" 
+                           BackgroundColor="{StaticResource Primary}"
+                           HorizontalOptions="Start">
+                        <Label Text="{Binding Product.Category}" 
+                               FontSize="11" 
+                               TextColor="White"/>
+                    </Frame>
+                    
+                    <!-- Product Name -->
+                    <Label Text="{Binding Product.Name}" 
+                           FontSize="24" 
+                           FontAttributes="Bold"/>
+                    
+                    <!-- Description -->
+                    <Label Text="{Binding Product.Description}" 
+                           FontSize="14" 
+                           TextColor="{StaticResource Gray600}"
+                           LineBreakMode="WordWrap"/>
+                    
+                    <!-- Price -->
+                    <HorizontalStackLayout Spacing="8" Margin="0,8">
+                        <Label Text="{Binding Product.Price, StringFormat='₹{0:F0}'}" 
+                               FontSize="28" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Primary}"/>
+                        <Label Text="{Binding Product.Unit, StringFormat='per {0}'}" 
+                               FontSize="14" 
+                               TextColor="{StaticResource Gray500}"
+                               VerticalOptions="End"
+                               Margin="0,0,0,4"/>
+                    </HorizontalStackLayout>
+                    
+                    <!-- Stock Status -->
+                    <Label Text="{Binding Product.Stock, StringFormat='{0} in stock'}" 
+                           FontSize="13" 
+                           TextColor="Green"
+                           IsVisible="{Binding IsInStock}"/>
+                    <Label Text="Out of Stock" 
+                           FontSize="13" 
+                           TextColor="Red"
+                           IsVisible="{Binding IsInStock, Converter={StaticResource InvertedBoolConverter}}"/>
+                    
+                    <!-- Quantity Selector -->
+                    <Frame Padding="16" 
+                           CornerRadius="12" 
+                           BackgroundColor="White"
+                           Margin="0,16"
+                           IsVisible="{Binding IsInStock}">
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+                            <Label Grid.Column="0" 
+                                   Text="Quantity" 
+                                   FontSize="16"
+                                   VerticalOptions="Center"/>
+                            
+                            <HorizontalStackLayout Grid.Column="2" Spacing="12">
+                                <Button Text="-" 
+                                        Command="{Binding DecreaseQuantityCommand}"
+                                        WidthRequest="40" HeightRequest="40" 
+                                        CornerRadius="20" 
+                                        Padding="0"
+                                        BackgroundColor="{StaticResource Gray200}"
+                                        TextColor="{StaticResource Gray600}"
+                                        FontSize="18"/>
+                                <Label Text="{Binding Quantity}" 
+                                       VerticalOptions="Center"
+                                       FontSize="20"
+                                       FontAttributes="Bold"
+                                       WidthRequest="40"
+                                       HorizontalTextAlignment="Center"/>
+                                <Button Text="+" 
+                                        Command="{Binding IncreaseQuantityCommand}"
+                                        WidthRequest="40" HeightRequest="40" 
+                                        CornerRadius="20" 
+                                        Padding="0"
+                                        BackgroundColor="{StaticResource Primary}"
+                                        TextColor="White"
+                                        FontSize="18"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Frame>
+                    
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        <!-- Add to Cart Button -->
+        <Frame Grid.Row="1" Padding="16" CornerRadius="0" BackgroundColor="White">
+            <Button Text="Add to Cart" 
+                    Command="{Binding AddToCartCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="50"
+                    IsEnabled="{Binding IsInStock}"/>
+        </Frame>
+        
+    </Grid>
+</ContentPage>

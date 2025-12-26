@@ -1,284 +1,253 @@
-# PantryGo - Stock Your Kitchen in a Few Taps
+# PantryGo – Grocery E-Commerce App
 
-A modern, full-featured mobile grocery shopping app built with Flutter, featuring cart management, real-time order tracking, secure payments, and push notifications.
+🛒 **Stock Your Kitchen in a Few Taps**
 
-## Features
+A full-stack grocery e-commerce mobile application built with .NET MAUI and ASP.NET Core.
 
-### 🛒 Product Catalog
-- Browse products by categories (Fruits, Vegetables, Dairy, Snacks, etc.)
-- Product search with real-time results
-- Product details with images, pricing, and reviews
-- Discount and offer management
+---
 
-### 🛍️ Shopping Cart
-- Add/remove items with quantity management
-- Real-time price calculations
-- Promo code support
-- Persistent cart storage
+## 🎯 Features
 
-### 💳 Secure Checkout
-- Multiple delivery address management
-- Delivery slot selection
-- Razorpay payment integration
-- Order confirmation
+### Customer Features
 
-### 📦 Order Management
-- Real-time order tracking
-- Order status updates (Placed → Packed → Out for Delivery → Delivered)
-- Order history with reorder functionality
-- Order cancellation support
+- 📱 **Product Browsing** - Browse products by category with search & filters
+- 🛒 **Shopping Cart** - Add items, adjust quantities, view totals
+- 💳 **Secure Checkout** - Razorpay payment integration (test mode)
+- 📦 **Order Tracking** - Real-time order status updates
+- 📍 **Address Management** - Save multiple delivery addresses
+- 👤 **User Profile** - Manage account and view order history
 
-### 🔔 Push Notifications
-- Firebase Cloud Messaging integration
-- Order status notifications
-- Promotional offers
-- Delivery updates
+### Admin Features
 
-### 👤 User Management
-- User authentication
-- Profile management
-- Address book
-- Order history
+- 📝 Product management (CRUD)
+- 📊 Order management
+- 🚚 Delivery partner assignment
 
-## Tech Stack
+### Technical Features
 
-- **Frontend**: Flutter (Dart)
-- **Backend**: ASP.NET Core Web API (Azure App Service)
-- **Database**: PostgreSQL (Azure Database for PostgreSQL)
-- **Push Notifications**: Firebase Cloud Messaging (FCM)
-- **Payments**: Razorpay API
-- **Maps**: Google Maps Flutter
-- **State Management**: Provider
-- **Navigation**: GoRouter
+- 🔐 JWT authentication with refresh tokens
+- 🏗️ Clean MVVM architecture
+- 📱 Cross-platform (Android, iOS, Windows)
+- 🔔 Push notification ready (FCM placeholder)
 
-## Getting Started
+---
+
+## 🧱 Tech Stack
+
+| Layer | Technology |
+|-------|------------|
+| **Mobile App** | .NET MAUI, C#, MVVM, CommunityToolkit.Mvvm |
+| **Backend API** | ASP.NET Core 9.0, Entity Framework Core |
+| **Database** | PostgreSQL |
+| **Payments** | Razorpay (Test Mode) |
+| **Notifications** | Firebase Cloud Messaging (Ready to integrate) |
+
+---
+
+## 📁 Project Structure
+
+```
+PantryGo/
+├── backend/
+│   └── PantryGo.Api/
+│       ├── Controllers/     # API endpoints
+│       ├── Services/        # Business logic
+│       ├── Models/          # Entities & DTOs
+│       ├── Data/            # DbContext & migrations
+│       └── Program.cs       # App configuration
+│
+└── mobile/
+    └── PantryGo/
+        ├── Views/           # XAML pages
+        ├── ViewModels/      # MVVM view models
+        ├── Services/        # API & local services
+        ├── Models/          # Data models
+        ├── Helpers/         # Utilities & converters
+        └── AppShell.xaml    # Navigation
+```
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Flutter SDK (3.8.1 or higher)
-- Dart SDK
-- Android Studio / VS Code
-- Firebase account
-- Razorpay account
+- .NET 9.0 SDK
+- PostgreSQL 14+
+- Visual Studio 2022 or VS Code with .NET MAUI workload
+- Android SDK (for Android builds)
 
-### Installation
+### Backend Setup
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd pantrygo
+1. **Configure Database**
+
+   Edit `backend/PantryGo.Api/appsettings.Development.json`:
+
+   ```json
+   {
+     "ConnectionStrings": {
+       "DefaultConnection": "Host=localhost;Port=5432;Database=pantrygo_dev;Username=postgres;Password=YOUR_PASSWORD"
+     }
+   }
    ```
 
-2. **Install dependencies**
+2. **Create Database & Apply Migrations**
+
    ```bash
-   flutter pub get
+   cd backend/PantryGo.Api
+   dotnet ef migrations add InitialCreate
+   dotnet ef database update
    ```
 
-3. **Firebase Setup**
-   - Create a new Firebase project
-   - Add Android/iOS apps to your Firebase project
-   - Download `google-services.json` (Android) and `GoogleService-Info.plist` (iOS)
-   - Place them in the respective platform folders
-   - Enable Firebase Cloud Messaging
+3. **Run the API**
 
-4. **Razorpay Setup**
-   - Create a Razorpay account
-   - Get your API keys from the dashboard
-   - Update the key in `lib/services/payment_service.dart`
-
-5. **Google Maps Setup** (Optional)
-   - Get Google Maps API key
-   - Add it to Android and iOS configurations
-
-6. **Run the app**
    ```bash
-   flutter run
+   dotnet run
    ```
 
-## Project Structure
+   API will be available at `http://localhost:5000`<br>
+   Swagger UI: `http://localhost:5000/swagger`
 
-```
-lib/
-├── main.dart                 # App entry point
-├── models/                   # Data models
-│   ├── product.dart
-│   ├── cart_item.dart
-│   ├── order.dart
-│   ├── address.dart
-│   └── category.dart
-├── providers/                # State management
-│   ├── auth_provider.dart
-│   ├── product_provider.dart
-│   ├── cart_provider.dart
-│   └── order_provider.dart
-├── screens/                  # UI screens
-│   ├── home_screen.dart
-│   ├── product_detail_screen.dart
-│   ├── cart_screen.dart
-│   ├── checkout_screen.dart
-│   ├── order_tracking_screen.dart
-│   ├── order_history_screen.dart
-│   └── profile_screen.dart
-├── widgets/                  # Reusable widgets
-│   ├── product_card.dart
-│   ├── category_card.dart
-│   └── search_bar.dart
-├── services/                 # External services
-│   ├── api_service.dart
-│   ├── notification_service.dart
-│   └── payment_service.dart
-└── utils/                    # Utilities
-    ├── app_theme.dart
-    ├── constants.dart
-    └── helpers.dart
-```
+### Mobile App Setup
 
-## Configuration
+1. **Update API URL** (if needed)
 
-### API Configuration
-Update the base URL in `lib/services/api_service.dart`:
-```dart
-static const String baseUrl = 'https://your-api-url.azurewebsites.net/api';
-```
+   Edit `mobile/PantryGo/Helpers/Constants.cs`:
 
-### Payment Configuration
-Update Razorpay key in `lib/services/payment_service.dart`:
-```dart
-'key': 'rzp_live_your_key_here', // Replace with your live key
-```
+   ```csharp
+   public static string ApiBaseUrl => "http://YOUR_API_URL:5000/api";
+   ```
 
-### Firebase Configuration
-Ensure Firebase is properly configured with:
-- Authentication (optional)
-- Cloud Messaging for notifications
-- Proper platform-specific setup files
+2. **Build & Run**
 
-## Backend API Endpoints
+   ```bash
+   cd mobile/PantryGo
+   
+   # Windows
+   dotnet build -t:Run -f net8.0-windows10.0.19041.0
+   
+   # Android
+   dotnet build -t:Run -f net8.0-android
+   ```
 
-The app expects the following API endpoints:
+---
+
+## 🔌 API Endpoints
 
 ### Authentication
-- `POST /api/auth/login`
-- `POST /api/auth/register`
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login |
+| POST | `/api/auth/refresh` | Refresh JWT token |
+| GET | `/api/auth/me` | Get current user |
 
 ### Products
-- `GET /api/categories`
-- `GET /api/products`
-- `GET /api/products/featured`
-- `GET /api/products/search?q={query}`
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/products` | List products (with filters) |
+| GET | `/api/products/{id}` | Get product details |
+| GET | `/api/products/categories` | Get categories |
+| POST | `/api/products` | Create product (Admin) |
+| PUT | `/api/products/{id}` | Update product (Admin) |
 
 ### Orders
-- `POST /api/orders`
-- `GET /api/users/{userId}/orders`
-- `PATCH /api/orders/{orderId}/status`
 
-### Addresses
-- `GET /api/users/{userId}/addresses`
-- `POST /api/users/{userId}/addresses`
-- `PUT /api/users/{userId}/addresses/{addressId}`
-- `DELETE /api/users/{userId}/addresses/{addressId}`
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/orders` | Create order |
+| GET | `/api/orders` | Get user's orders |
+| GET | `/api/orders/{id}` | Get order details |
+| PUT | `/api/orders/{id}/status` | Update status (Admin/Delivery) |
 
 ### Payments
-- `POST /api/payments/verify`
 
-## Features in Detail
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/payments/create` | Create payment order |
+| POST | `/api/payments/verify` | Verify payment |
 
-### State Management
-The app uses Provider for state management with the following providers:
-- `AuthProvider`: User authentication and profile management
-- `ProductProvider`: Product catalog and search functionality
-- `CartProvider`: Shopping cart management
-- `OrderProvider`: Order placement and tracking
+---
 
-### Payment Integration
-Razorpay integration includes:
-- Secure payment processing
-- Multiple payment methods (Cards, UPI, Net Banking, Wallets)
-- Payment verification with backend
-- Error handling and retry mechanisms
+## 🔐 Environment Variables
 
-### Push Notifications
-Firebase Cloud Messaging provides:
-- Order status updates
-- Promotional notifications
-- Delivery alerts
-- Background message handling
+Create `.env` or configure in `appsettings.json`:
 
-### Offline Support
-- Cart persistence using SharedPreferences
-- Cached product images
-- Graceful error handling for network issues
-
-## Testing
-
-Run tests using:
-```bash
-flutter test
+```
+DB_CONNECTION_STRING=Host=localhost;Database=pantrygo;...
+JWT_SECRET=YourSecureJwtSecretKey32CharactersLong
+RAZORPAY_KEY_ID=rzp_test_xxx
+RAZORPAY_KEY_SECRET=xxx
+FCM_SERVER_KEY=xxx (optional)
 ```
 
-## Building for Production
+---
 
-### Android
+## 📱 Screenshots
+
+| Home | Product Detail | Cart |
+|------|----------------|------|
+| Product grid with categories | Quantity selection | Cart summary |
+
+| Checkout | Orders | Profile |
+|----------|--------|---------|
+| Address selection | Order history | User menu |
+
+---
+
+## 🧪 Testing
+
+### Backend
+
 ```bash
-flutter build apk --release
-# or
-flutter build appbundle --release
+cd backend/PantryGo.Api
+dotnet test
 ```
 
-### iOS
-```bash
-flutter build ios --release
-```
+### Test Credentials (Razorpay Test Mode)
 
-## Deployment
+- Card: `4111 1111 1111 1111`
+- Expiry: Any future date
+- CVV: Any 3 digits
 
-### Backend Deployment (Azure)
-1. Deploy ASP.NET Core Web API to Azure App Service
-2. Configure PostgreSQL database on Azure
-3. Set up environment variables for API keys
-4. Configure CORS for mobile app access
+---
 
-### Mobile App Deployment
-1. **Android**: Upload to Google Play Store
-2. **iOS**: Upload to Apple App Store
+## 📦 Deployment
 
-## Contributing
+### Backend
+
+- **Azure App Service** - Free tier available
+- **Railway** - PostgreSQL hosting
+
+### Mobile
+
+- **Android**: Generate APK with `dotnet publish`
+- **iOS**: Requires Mac with Xcode
+
+---
+
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+2. Create feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## License
+---
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 📄 License
 
-## Support
+MIT License - see [LICENSE](LICENSE) file for details.
 
-For support and questions:
-- Create an issue in the repository
-- Contact: support@pantrygo.com
+---
 
-## Roadmap
+## 👤 Author
 
-- [ ] Social login integration
-- [ ] Wishlist functionality
-- [ ] Product reviews and ratings
-- [ ] Live chat support
-- [ ] Loyalty program
-- [ ] Multi-language support
-- [ ] Dark mode theme
+**PantryGo Team**
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+*Built with ❤️ using .NET MAUI and ASP.NET Core*

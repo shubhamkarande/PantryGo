@@ -1,0 +1,108 @@
+is_global = true
+build_property.MvvmToolkitEnableINotifyPropertyChangingSupport = true
+build_property.TargetFramework = net8.0-windows10.0.19041.0
+build_property.TargetPlatformMinVersion = 10.0.17763.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 9A19103F-16F7-4668-BE54-9A1E7A4F7556
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PantryGo
+build_property.ProjectDir = C:\MyProjects\MobileAppDevelopment\PantryGo\mobile\PantryGo\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTAotOptimizerEnabled = true
+build_property.CsWinRTAotExportsEnabled = 
+build_property.CsWinRTRcwFactoryFallbackGeneratorForceOptIn = 
+build_property.CsWinRTRcwFactoryFallbackGeneratorForceOptOut = 
+build_property.CsWinRTCcwLookupTableGeneratorEnabled = true
+build_property.CsWinRTMergeReferencedActivationFactories = 
+build_property.CsWinRTAotWarningLevel = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/AddressesPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.AddressesPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\AddressesPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\AddressesPage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/CartPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.CartPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CartPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CartPage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/CheckoutPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.CheckoutPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\CheckoutPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\CheckoutPage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/HomePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.HomePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\HomePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\HomePage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LoginPage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/OrderDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.OrderDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\OrderDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\OrderDetailPage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/OrderListPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.OrderListPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\OrderListPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\OrderListPage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/ProductDetailPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.ProductDetailPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProductDetailPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProductDetailPage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/ProfilePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.ProfilePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\ProfilePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\ProfilePage.xaml
+
+[C:/MyProjects/MobileAppDevelopment/PantryGo/mobile/PantryGo/Views/RegisterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = PantryGo.Views.RegisterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\RegisterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\RegisterPage.xaml

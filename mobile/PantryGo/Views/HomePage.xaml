@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PantryGo.ViewModels"
+             xmlns:models="clr-namespace:PantryGo.Models"
+             x:Class="PantryGo.Views.HomePage"
+             x:DataType="vm:HomeViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+    
+    <Grid RowDefinitions="Auto,Auto,*">
+        
+        <!-- Header with Search and Cart -->
+        <Grid Grid.Row="0" Padding="16,16,16,8" ColumnDefinitions="*,Auto">
+            
+            <!-- Search Bar -->
+            <Frame Grid.Column="0" 
+                   Padding="0" 
+                   CornerRadius="12" 
+                   BorderColor="{StaticResource Gray300}"
+                   Margin="0,0,12,0">
+                <Grid ColumnDefinitions="Auto,*,Auto">
+                    <Label Grid.Column="0" Text="🔍" VerticalOptions="Center" Margin="12,0"/>
+                    <Entry Grid.Column="1" 
+                           Text="{Binding SearchQuery}"
+                           Placeholder="Search products..."
+                           ReturnCommand="{Binding SearchCommand}"/>
+                    <Button Grid.Column="2" 
+                            Text="Go" 
+                            Command="{Binding SearchCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource Primary}"
+                            Padding="12,0"/>
+                </Grid>
+            </Frame>
+            
+            <!-- Cart Button -->
+            <Frame Grid.Column="1" 
+                   Padding="12" 
+                   CornerRadius="12" 
+                   BackgroundColor="{StaticResource Primary}">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GoToCartCommand}"/>
+                </Frame.GestureRecognizers>
+                <Grid>
+                    <Label Text="🛒" FontSize="20"/>
+                    <Frame IsVisible="{Binding CartItemCount, Converter={StaticResource IntToBoolConverter}}"
+                           BackgroundColor="Red"
+                           CornerRadius="10"
+                           Padding="4"
+                           HeightRequest="20"
+                           WidthRequest="20"
+                           HorizontalOptions="End"
+                           VerticalOptions="Start"
+                           Margin="-8,-8,0,0">
+                        <Label Text="{Binding CartItemCount}" 
+                               TextColor="White" 
+                               FontSize="10"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                </Grid>
+            </Frame>
+        </Grid>
+        
+        <!-- Categories -->
+        <ScrollView Grid.Row="1" 
+                    Orientation="Horizontal" 
+                    HorizontalScrollBarVisibility="Never"
+                    Padding="16,8">
+            <HorizontalStackLayout Spacing="8" BindableLayout.ItemsSource="{Binding Categories}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <Frame Padding="12,8" 
+                               CornerRadius="20"
+                               BorderColor="{StaticResource Primary}">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=SelectCategoryCommand}"
+                                    CommandParameter="{Binding}"/>
+                            </Frame.GestureRecognizers>
+                            <Label Text="{Binding}" 
+                                   TextColor="{StaticResource Primary}"
+                                   FontSize="14"/>
+                        </Frame>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </HorizontalStackLayout>
+        </ScrollView>
+        
+        <!-- Products Grid -->
+        <RefreshView Grid.Row="2" 
+                     IsRefreshing="{Binding IsBusy}"
+                     Command="{Binding LoadProductsCommand}">
+            <CollectionView ItemsSource="{Binding Products}"
+                            ItemsLayout="VerticalGrid, 2"
+                            Margin="8,0">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Product">
+                        <Frame Margin="8" 
+                               Padding="12" 
+                               CornerRadius="12"
+                               BorderColor="{StaticResource Gray200}"
+                               BackgroundColor="White">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=ViewProductCommand}"
+                                    CommandParameter="{Binding}"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout Spacing="8">
+                                
+                                <!-- Product Image Placeholder -->
+                                <Frame HeightRequest="100" 
+                                       CornerRadius="8" 
+                                       BackgroundColor="{StaticResource Gray100}"
+                                       Padding="0">
+                                    <Label Text="🥬" 
+                                           FontSize="40" 
+                                           HorizontalOptions="Center" 
+                                           VerticalOptions="Center"/>
+                                </Frame>
+                                
+                                <!-- Product Name -->
+                                <Label Text="{Binding Name}" 
+                                       FontSize="14" 
+                                       FontAttributes="Bold"
+                                       LineBreakMode="TailTruncation"
+                                       MaxLines="2"/>
+                                
+                                <!-- Category Badge -->
+                                <Label Text="{Binding Category}" 
+                                       FontSize="11" 
+                                       TextColor="{StaticResource Gray500}"/>
+                                
+                                <!-- Price and Add Button -->
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <VerticalStackLayout Grid.Column="0">
+                                        <Label Text="{Binding Price, StringFormat='₹{0:F0}'}" 
+                                               FontSize="16" 
+                                               FontAttributes="Bold"
+                                               TextColor="{StaticResource Primary}"/>
+                                        <Label Text="{Binding Unit, StringFormat='per {0}'}" 
+                                               FontSize="10" 
+                                               TextColor="{StaticResource Gray400}"/>
+                                    </VerticalStackLayout>
+                                    
+                                    <Button Grid.Column="1" 
+                                            Text="+" 
+                                            FontSize="18"
+                                            WidthRequest="36"
+                                            HeightRequest="36"
+                                            CornerRadius="18"
+                                            Padding="0"
+                                            BackgroundColor="{StaticResource Primary}"
+                                            TextColor="White"
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type vm:HomeViewModel}}, Path=AddToCartCommand}"
+                                            CommandParameter="{Binding}"
+                                            IsEnabled="{Binding Stock, Converter={StaticResource IntToBoolConverter}}"/>
+                                </Grid>
+                                
+                                <!-- Stock Status -->
+                                <Label Text="{Binding Stock, StringFormat='{0} in stock'}" 
+                                       FontSize="10" 
+                                       TextColor="{StaticResource Gray400}"
+                                       IsVisible="{Binding Stock, Converter={StaticResource IntToBoolConverter}}"/>
+                                <Label Text="Out of Stock" 
+                                       FontSize="10" 
+                                       TextColor="Red"
+                                       IsVisible="{Binding Stock, Converter={StaticResource IntToBoolInverter}}"/>
+                                
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                
+                <CollectionView.EmptyView>
+                    <VerticalStackLayout VerticalOptions="Center" Spacing="8" Padding="24">
+                        <Label Text="🛒" FontSize="64" HorizontalOptions="Center"/>
+                        <Label Text="No products found" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label Text="Try a different search or category" 
+                               FontSize="14" 
+                               TextColor="{StaticResource Gray500}"
+                               HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+                </CollectionView.EmptyView>
+            </CollectionView>
+        </RefreshView>
+        
+    </Grid>
+</ContentPage>

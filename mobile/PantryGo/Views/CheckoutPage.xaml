@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PantryGo.ViewModels"
+             xmlns:models="clr-namespace:PantryGo.Models"
+             x:Class="PantryGo.Views.CheckoutPage"
+             x:DataType="vm:CheckoutViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+    
+    <Grid RowDefinitions="*,Auto">
+        
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="16" Spacing="16">
+                
+                <!-- Loading -->
+                <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                                   IsVisible="{Binding IsBusy}"
+                                   Color="{StaticResource Primary}"/>
+                
+                <!-- Error Message -->
+                <Frame IsVisible="{Binding HasError}" 
+                       BackgroundColor="#FFE0E0" 
+                       Padding="12" 
+                       CornerRadius="8"
+                       BorderColor="Transparent">
+                    <Label Text="{Binding ErrorMessage}" TextColor="#C62828"/>
+                </Frame>
+                
+                <!-- Delivery Address Section -->
+                <Frame Padding="16" CornerRadius="12" BackgroundColor="White">
+                    <VerticalStackLayout Spacing="12">
+                        <HorizontalStackLayout>
+                            <Label Text="📍 Delivery Address" FontSize="16" FontAttributes="Bold"/>
+                            <Label Text="*" TextColor="Red" FontSize="16"/>
+                        </HorizontalStackLayout>
+                        
+                        <!-- Address List -->
+                        <CollectionView ItemsSource="{Binding Addresses}" 
+                                        SelectionMode="Single"
+                                        SelectedItem="{Binding SelectedAddress}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate x:DataType="models:Address">
+                                    <Frame Padding="12" 
+                                           CornerRadius="8"
+                                           Margin="0,4"
+                                           BorderColor="{StaticResource Primary}">
+                                        <Grid ColumnDefinitions="Auto,*">
+                                            <RadioButton Grid.Column="0" 
+                                                         IsChecked="{Binding IsDefault}"
+                                                         VerticalOptions="Center"/>
+                                            <VerticalStackLayout Grid.Column="1" Margin="8,0,0,0">
+                                                <Label Text="{Binding Label}" 
+                                                       FontSize="14" 
+                                                       FontAttributes="Bold"/>
+                                                <Label Text="{Binding AddressLine}" 
+                                                       FontSize="13" 
+                                                       TextColor="{StaticResource Gray600}"/>
+                                                <Label FontSize="12" TextColor="{StaticResource Gray500}">
+                                                    <Label.Text>
+                                                        <MultiBinding StringFormat="{}{0}, {1}">
+                                                            <Binding Path="City"/>
+                                                            <Binding Path="Pincode"/>
+                                                        </MultiBinding>
+                                                    </Label.Text>
+                                                </Label>
+                                            </VerticalStackLayout>
+                                        </Grid>
+                                    </Frame>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                            
+                            <CollectionView.EmptyView>
+                                <Label Text="No addresses found. Add one below." 
+                                       TextColor="{StaticResource Gray500}"
+                                       FontSize="13"/>
+                            </CollectionView.EmptyView>
+                        </CollectionView>
+                        
+                        <!-- Add New Address Button -->
+                        <Button Text="+ Add New Address" 
+                                Command="{Binding ShowAddressFormCommand}"
+                                BackgroundColor="Transparent"
+                                TextColor="{StaticResource Primary}"
+                                IsVisible="{Binding IsAddressFormVisible, Converter={StaticResource InvertedBoolConverter}}"/>
+                        
+                        <!-- New Address Form -->
+                        <VerticalStackLayout Spacing="8" 
+                                             IsVisible="{Binding IsAddressFormVisible}"
+                                             Margin="0,8,0,0">
+                            
+                            <Label Text="New Address" FontAttributes="Bold"/>
+                            
+                            <Entry Text="{Binding NewAddressLabel}" 
+                                   Placeholder="Label (Home, Work, etc.)"/>
+                            <Entry Text="{Binding NewAddressLine}" 
+                                   Placeholder="Address Line *"/>
+                            <Entry Text="{Binding NewCity}" 
+                                   Placeholder="City *"/>
+                            <Entry Text="{Binding NewPincode}" 
+                                   Placeholder="Pincode *"
+                                   Keyboard="Numeric"/>
+                            
+                            <HorizontalStackLayout Spacing="12">
+                                <Button Text="Save Address" 
+                                        Command="{Binding SaveAddressCommand}"
+                                        BackgroundColor="{StaticResource Primary}"
+                                        TextColor="White"
+                                        HorizontalOptions="FillAndExpand"/>
+                                <Button Text="Cancel" 
+                                        Command="{Binding HideAddressFormCommand}"
+                                        BackgroundColor="{StaticResource Gray200}"
+                                        TextColor="{StaticResource Gray600}"
+                                        HorizontalOptions="FillAndExpand"/>
+                            </HorizontalStackLayout>
+                        </VerticalStackLayout>
+                        
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!-- Order Summary -->
+                <Frame Padding="16" CornerRadius="12" BackgroundColor="White">
+                    <VerticalStackLayout Spacing="12">
+                        <Label Text="Order Summary" FontSize="16" FontAttributes="Bold"/>
+                        
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Subtotal"/>
+                            <Label Grid.Column="1" Text="{Binding Subtotal, StringFormat='₹{0:F0}'}"/>
+                        </Grid>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Delivery Fee"/>
+                            <Label Grid.Column="1" Text="{Binding DeliveryFee, StringFormat='₹{0:F0}'}"/>
+                        </Grid>
+                        
+                        <BoxView HeightRequest="1" Color="{StaticResource Gray200}"/>
+                        
+                        <Grid ColumnDefinitions="*,Auto">
+                            <Label Text="Total" FontSize="18" FontAttributes="Bold"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Total, StringFormat='₹{0:F0}'}" 
+                                   FontSize="18" 
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Primary}"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Frame>
+                
+            </VerticalStackLayout>
+        </ScrollView>
+        
+        <!-- Place Order Button -->
+        <Frame Grid.Row="1" Padding="16" CornerRadius="0" BackgroundColor="White">
+            <Button Text="Place Order" 
+                    Command="{Binding PlaceOrderCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="50"/>
+        </Frame>
+        
+    </Grid>
+</ContentPage>

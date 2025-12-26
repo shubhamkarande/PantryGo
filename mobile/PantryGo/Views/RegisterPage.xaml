@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PantryGo.ViewModels"
+             x:Class="PantryGo.Views.RegisterPage"
+             x:DataType="vm:RegisterViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="12">
+            
+            <!-- Header -->
+            <Label Text="Create Account" 
+                   FontSize="28" 
+                   FontAttributes="Bold"
+                   Margin="0,0,0,8"/>
+            <Label Text="Fill in your details to get started" 
+                   FontSize="14" 
+                   TextColor="{StaticResource Gray500}"
+                   Margin="0,0,0,16"/>
+            
+            <!-- Error Message -->
+            <Frame IsVisible="{Binding HasError}" 
+                   BackgroundColor="#FFE0E0" 
+                   Padding="12" 
+                   CornerRadius="8"
+                   BorderColor="Transparent">
+                <Label Text="{Binding ErrorMessage}" TextColor="#C62828"/>
+            </Frame>
+            
+            <!-- Name -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Full Name" FontSize="14" TextColor="{StaticResource Gray600}"/>
+                <Frame Padding="0" CornerRadius="8" BorderColor="{StaticResource Gray300}">
+                    <Entry Text="{Binding Name}" 
+                           Placeholder="John Doe"
+                           Margin="12,0"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <!-- Email -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Email" FontSize="14" TextColor="{StaticResource Gray600}"/>
+                <Frame Padding="0" CornerRadius="8" BorderColor="{StaticResource Gray300}">
+                    <Entry Text="{Binding Email}" 
+                           Placeholder="you@example.com"
+                           Keyboard="Email"
+                           Margin="12,0"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <!-- Phone (Optional) -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Phone (Optional)" FontSize="14" TextColor="{StaticResource Gray600}"/>
+                <Frame Padding="0" CornerRadius="8" BorderColor="{StaticResource Gray300}">
+                    <Entry Text="{Binding Phone}" 
+                           Placeholder="9876543210"
+                           Keyboard="Telephone"
+                           Margin="12,0"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <!-- Password -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Password" FontSize="14" TextColor="{StaticResource Gray600}"/>
+                <Frame Padding="0" CornerRadius="8" BorderColor="{StaticResource Gray300}">
+                    <Entry Text="{Binding Password}" 
+                           Placeholder="At least 6 characters"
+                           IsPassword="True"
+                           Margin="12,0"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <!-- Confirm Password -->
+            <VerticalStackLayout Spacing="4">
+                <Label Text="Confirm Password" FontSize="14" TextColor="{StaticResource Gray600}"/>
+                <Frame Padding="0" CornerRadius="8" BorderColor="{StaticResource Gray300}">
+                    <Entry Text="{Binding ConfirmPassword}" 
+                           Placeholder="Re-enter password"
+                           IsPassword="True"
+                           Margin="12,0"/>
+                </Frame>
+            </VerticalStackLayout>
+            
+            <!-- Register Button -->
+            <Button Text="Create Account" 
+                    Command="{Binding RegisterCommand}"
+                    BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="8"
+                    HeightRequest="50"
+                    Margin="0,16,0,0"/>
+            
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                               IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Primary}"/>
+            
+            <!-- Login Link -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4" Margin="0,16,0,0">
+                <Label Text="Already have an account?" TextColor="{StaticResource Gray500}"/>
+                <Label Text="Login" 
+                       TextColor="{StaticResource Primary}"
+                       FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToLoginCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

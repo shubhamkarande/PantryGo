@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PantryGo.ViewModels"
+             xmlns:models="clr-namespace:PantryGo.Models"
+             x:Class="PantryGo.Views.OrderDetailPage"
+             x:DataType="vm:OrderDetailViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="16" Spacing="16">
+            
+            <!-- Loading -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                               IsVisible="{Binding IsBusy}"
+                               Color="{StaticResource Primary}"/>
+            
+            <!-- Status Card -->
+            <Frame Padding="20" CornerRadius="12" BackgroundColor="White">
+                <VerticalStackLayout Spacing="8" HorizontalOptions="Center">
+                    <Label Text="{Binding StatusIcon}" FontSize="48" HorizontalOptions="Center"/>
+                    <Label Text="{Binding StatusText}" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding Order.UpdatedAt, StringFormat='Updated: {0:MMM dd, yyyy hh:mm tt}'}" 
+                           FontSize="12" 
+                           TextColor="{StaticResource Gray500}"
+                           HorizontalOptions="Center"/>
+                    
+                    <Button Text="Refresh Status" 
+                            Command="{Binding RefreshOrderCommand}"
+                            BackgroundColor="Transparent"
+                            TextColor="{StaticResource Primary}"
+                            Margin="0,8,0,0"/>
+                </VerticalStackLayout>
+            </Frame>
+            
+            <!-- Order Info -->
+            <Frame Padding="16" CornerRadius="12" BackgroundColor="White">
+                <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,*">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Order ID" 
+                           FontSize="12" TextColor="{StaticResource Gray500}"/>
+                    <Label Grid.Row="0" Grid.Column="1" 
+                           Text="{Binding Order.Id, StringFormat='{0}', Converter={StaticResource GuidToShortStringConverter}}" 
+                           FontSize="12" 
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="End"/>
+                    
+                    <Label Grid.Row="1" Grid.Column="0" Text="Placed On" 
+                           FontSize="12" TextColor="{StaticResource Gray500}" Margin="0,8"/>
+                    <Label Grid.Row="1" Grid.Column="1" 
+                           Text="{Binding Order.CreatedAt, StringFormat='{0:MMM dd, yyyy}'}" 
+                           FontSize="12" 
+                           HorizontalTextAlignment="End" Margin="0,8"/>
+                    
+                    <Label Grid.Row="2" Grid.Column="0" Text="Payment" 
+                           FontSize="12" TextColor="{StaticResource Gray500}"/>
+                    <Label Grid.Row="2" Grid.Column="1" 
+                           Text="{Binding Order.IsPaid, Converter={StaticResource BoolToPaymentStatusConverter}}" 
+                           FontSize="12" 
+                           HorizontalTextAlignment="End"/>
+                </Grid>
+            </Frame>
+            
+            <!-- Delivery Address -->
+            <Frame Padding="16" CornerRadius="12" BackgroundColor="White" 
+                   IsVisible="{Binding Order.Address, Converter={StaticResource NullToBoolConverter}}">
+                <VerticalStackLayout Spacing="4">
+                    <Label Text="📍 Delivery Address" FontSize="14" FontAttributes="Bold"/>
+                    <Label Text="{Binding Order.Address.Label}" FontSize="12" TextColor="{StaticResource Gray600}"/>
+                    <Label Text="{Binding Order.Address.AddressLine}" FontSize="13"/>
+                    <Label Text="{Binding Order.Address.City}" FontSize="12" TextColor="{StaticResource Gray500}"/>
+                    <Label Text="{Binding Order.Address.Pincode}" FontSize="12" TextColor="{StaticResource Gray500}"/>
+                </VerticalStackLayout>
+            </Frame>
+            
+            <!-- Order Items -->
+            <Frame Padding="16" CornerRadius="12" BackgroundColor="White">
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Order Items" FontSize="16" FontAttributes="Bold"/>
+                    
+                    <CollectionView ItemsSource="{Binding Order.Items}" SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="models:OrderItem">
+                                <Grid ColumnDefinitions="*,Auto" Margin="0,4">
+                                    <VerticalStackLayout>
+                                        <Label Text="{Binding ProductName}" FontSize="14"/>
+                                        <Label Text="{Binding Quantity, StringFormat='Qty: {0}'}" 
+                                               FontSize="12" TextColor="{StaticResource Gray500}"/>
+                                    </VerticalStackLayout>
+                                    <Label Grid.Column="1" 
+                                           Text="{Binding Price, StringFormat='₹{0:F0}'}" 
+                                           FontSize="14" 
+                                           FontAttributes="Bold"
+                                           VerticalOptions="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                    
+                    <BoxView HeightRequest="1" Color="{StaticResource Gray200}" Margin="0,8"/>
+                    
+                    <!-- Total -->
+                    <Grid ColumnDefinitions="*,Auto">
+                        <Label Text="Total" FontSize="16" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" 
+                               Text="{Binding Order.TotalAmount, StringFormat='₹{0:F0}'}" 
+                               FontSize="20" 
+                               FontAttributes="Bold"
+                               TextColor="{StaticResource Primary}"/>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

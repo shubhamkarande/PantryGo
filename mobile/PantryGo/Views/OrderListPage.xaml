@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:PantryGo.ViewModels"
+             xmlns:models="clr-namespace:PantryGo.Models"
+             x:Class="PantryGo.Views.OrderListPage"
+             x:DataType="vm:OrderListViewModel"
+             Title="{Binding Title}"
+             BackgroundColor="{StaticResource Background}">
+    
+    <RefreshView IsRefreshing="{Binding IsRefreshing}" 
+                 Command="{Binding RefreshCommand}">
+        <CollectionView ItemsSource="{Binding Orders}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Order">
+                    <Frame Margin="16,8" Padding="16" CornerRadius="12" BackgroundColor="White">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type vm:OrderListViewModel}}, Path=ViewOrderCommand}"
+                                CommandParameter="{Binding}"/>
+                        </Frame.GestureRecognizers>
+                        <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,Auto">
+                            
+                            <!-- Order ID -->
+                            <Label Grid.Row="0" Grid.Column="0" 
+                                   Text="{Binding Id, StringFormat='Order #{0}', Converter={StaticResource GuidToShortStringConverter}}"
+                                   FontSize="16" 
+                                   FontAttributes="Bold"/>
+                            
+                            <!-- Status Badge -->
+                            <Frame Grid.Row="0" Grid.Column="1" 
+                                   Padding="8,4" 
+                                   CornerRadius="12"
+                                   BackgroundColor="{StaticResource Primary}">
+                                <Label Text="{Binding Status}" 
+                                       FontSize="11" 
+                                       TextColor="White"/>
+                            </Frame>
+                            
+                            <!-- Date -->
+                            <Label Grid.Row="1" Grid.ColumnSpan="2" 
+                                   Text="{Binding CreatedAt, StringFormat='{0:MMM dd, yyyy • hh:mm tt}'}" 
+                                   FontSize="12" 
+                                   TextColor="{StaticResource Gray500}"
+                                   Margin="0,4"/>
+                            
+                            <!-- Items & Total -->
+                            <Label Grid.Row="2" Grid.Column="0" 
+                                   Text="{Binding Items.Count, StringFormat='{0} item(s)'}" 
+                                   FontSize="13"/>
+                            <Label Grid.Row="2" Grid.Column="1" 
+                                   Text="{Binding TotalAmount, StringFormat='₹{0:F0}'}" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold"
+                                   TextColor="{StaticResource Primary}"/>
+                            
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+            <CollectionView.EmptyView>
+                <VerticalStackLayout VerticalOptions="Center" Spacing="16" Padding="24">
+                    <Label Text="📦" FontSize="64" HorizontalOptions="Center"/>
+                    <Label Text="No orders yet" 
+                           FontSize="20" 
+                           FontAttributes="Bold"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Your order history will appear here" 
+                           FontSize="14" 
+                           TextColor="{StaticResource Gray500}"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+        </CollectionView>
+    </RefreshView>
+</ContentPage>

@@ -1,0 +1,1 @@
+C:\MyProjects\MobileAppDevelopment\PantryGo\mobile\PantryGo\PantryGo.csproj;x64
