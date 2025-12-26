@@ -1,0 +1,90 @@
+# .NET / MAUI
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+.vs/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Oo]bj/
+[Bb]in/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# Visual Studio
+*.suo
+*.user
+*.sln.docstates
+.vs/
+*.db
+*.dbmdl
+*.opendb
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# macOS
+.DS_Store
+*.DS_Store
+
+# Windows
+Thumbs.db
+
+# Android
+*.apk
+*.aab
+*.keystore
+!signing.keystore.example
+
+# iOS
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# MAUI
+*.workload
+MauiProgram.g.cs
+
+# Logs
+*.log
+logs/
+
+# Environment and secrets - IMPORTANT!
+appsettings.Development.json
+appsettings.Local.json
+!appsettings.json
+!appsettings.*.sample.json
+.env
+.env.*
+*.env
+secrets.json
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Migration SQL (auto-generated)
+migration.sql
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx

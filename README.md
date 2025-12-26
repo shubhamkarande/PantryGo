@@ -81,22 +81,23 @@ PantryGo/
 
 1. **Configure Database**
 
-   Edit `backend/PantryGo.Api/appsettings.Development.json`:
+   Copy the sample config and add your password:
 
-   ```json
-   {
-     "ConnectionStrings": {
-       "DefaultConnection": "Host=localhost;Port=5432;Database=pantrygo_dev;Username=postgres;Password=YOUR_PASSWORD"
-     }
-   }
+   ```bash
+   cd backend/PantryGo.Api
+   cp appsettings.Development.sample.json appsettings.Development.json
    ```
+
+   Edit `appsettings.Development.json` with your PostgreSQL password.
 
 2. **Create Database & Apply Migrations**
 
    ```bash
-   cd backend/PantryGo.Api
-   dotnet ef migrations add InitialCreate
-   dotnet ef database update
+   # Create database in PostgreSQL first
+   psql -U postgres -c "CREATE DATABASE pantrygo;"
+   
+   # Run migration script OR apply via EF
+   psql -U postgres -d pantrygo -f migration.sql
    ```
 
 3. **Run the API**
@@ -246,7 +247,9 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ## 👤 Author
 
-**PantryGo Team**
+**Shubham Karande**
+
+- GitHub: [@shubhamkarande](https://github.com/shubhamkarande)
 
 ---
 
