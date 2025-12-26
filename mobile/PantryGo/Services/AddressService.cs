@@ -21,22 +21,22 @@ public class AddressService : IAddressService
     
     public async Task<List<Address>> GetAddressesAsync()
     {
-        var addresses = await _apiService.GetAsync<List<Address>>("/addresses");
+        var addresses = await _apiService.GetAsync<List<Address>>("addresses");
         return addresses ?? new List<Address>();
     }
     
     public async Task<Address?> CreateAddressAsync(CreateAddressRequest request)
     {
-        return await _apiService.PostAsync<Address>("/addresses", request);
+        return await _apiService.PostAsync<Address>("addresses", request);
     }
     
     public async Task<Address?> SetDefaultAddressAsync(Guid addressId)
     {
-        return await _apiService.PutAsync<Address>($"/addresses/{addressId}/default");
+        return await _apiService.PutAsync<Address>($"addresses/{addressId}/default");
     }
     
     public async Task<bool> DeleteAddressAsync(Guid addressId)
     {
-        return await _apiService.DeleteAsync($"/addresses/{addressId}");
+        return await _apiService.DeleteAsync($"addresses/{addressId}");
     }
 }

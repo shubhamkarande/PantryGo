@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PantryGo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+e4c6112a924ee42ddefecd5d8d89108d7626e23b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+adfa07ed27f3b140b58c227ab0e19c53af099c95")]
 [assembly: System.Reflection.AssemblyProductAttribute("PantryGo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PantryGo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

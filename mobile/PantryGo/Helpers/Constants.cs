@@ -4,9 +4,10 @@ public static class Constants
 {
     // API Base URL - For physical device, use laptop's IP address
     // For emulator, use 10.0.2.2 (Android) or localhost (Windows)
+    // IMPORTANT: Must end with trailing slash for HttpClient path concatenation!
     public static string ApiBaseUrl => DeviceInfo.Platform == DevicePlatform.Android
-        ? "http://10.220.222.11:5000/api" // Laptop IP on hotspot
-        : "http://localhost:5000/api"; // Windows
+        ? "http://10.220.222.11:5000/api/" // Laptop IP on hotspot
+        : "http://localhost:5000/api/"; // Windows
     
     // Local storage keys
     public const string TokenKey = "auth_token";

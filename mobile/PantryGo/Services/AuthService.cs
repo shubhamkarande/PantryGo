@@ -35,7 +35,7 @@ public class AuthService : IAuthService
         try
         {
             var request = new LoginRequest { Email = email, Password = password };
-            var response = await _apiService.PostAsync<AuthResponse>("/auth/login", request);
+            var response = await _apiService.PostAsync<AuthResponse>("auth/login", request);
             
             if (response != null)
             {
@@ -63,7 +63,7 @@ public class AuthService : IAuthService
                 Phone = phone
             };
             
-            var response = await _apiService.PostAsync<AuthResponse>("/auth/register", request);
+            var response = await _apiService.PostAsync<AuthResponse>("auth/register", request);
             
             if (response != null)
             {
@@ -133,7 +133,7 @@ public class AuthService : IAuthService
     {
         try
         {
-            var user = await _apiService.GetAsync<User>("/auth/me");
+            var user = await _apiService.GetAsync<User>("auth/me");
             if (user != null)
             {
                 _currentUser = user;

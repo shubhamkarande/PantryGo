@@ -26,17 +26,17 @@ public class OrderService : IOrderService
             Items = items
         };
         
-        return await _apiService.PostAsync<Order>("/orders", request);
+        return await _apiService.PostAsync<Order>("orders", request);
     }
     
     public async Task<List<Order>> GetOrdersAsync(int page = 1, int pageSize = 20)
     {
-        var response = await _apiService.GetAsync<PagedResponse<Order>>($"/orders?page={page}&pageSize={pageSize}");
+        var response = await _apiService.GetAsync<PagedResponse<Order>>($"orders?page={page}&pageSize={pageSize}");
         return response?.Items ?? new List<Order>();
     }
     
     public async Task<Order?> GetOrderByIdAsync(Guid id)
     {
-        return await _apiService.GetAsync<Order>($"/orders/{id}");
+        return await _apiService.GetAsync<Order>($"orders/{id}");
     }
 }
